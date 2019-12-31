@@ -1,0 +1,97 @@
+<html>
+<div class="box" id = "CurrentTurn">Player X's Turn</div>
+<div class="game-board" id="board1" onClick="showBox()">
+  <div class="box" id="box-0-0"></div>
+  <div class="box" id="box-0-1"></div>
+  <div class="box" id="box-0-2"></div>
+  <div class="box" id="box-0-3"></div>
+  <div class="box" id="box-0-4"></div>
+  <div class="box" id="box-0-5"></div>
+  <div class="box" id="box-0-6"></div>
+  <div class="box" id="box-0-7"></div>
+  <div class="box" id="box-0-8"></div>
+</div>
+<script>
+  turn = 'X'
+  board = [ null, null, null, null, null, null, null, null, null]
+  fill()
+
+  function showBox(e) {
+    e = e || window.event;
+    e = e.target || e.srcElement;
+    if(e.innerText) return
+    board[e.id.split('-')[2]] = turn
+    if(turn != 'X') turn = 'X'
+    else turn = "O"
+    document.getElementById('CurrentTurn').innerText = "Player "+ turn+"'s Turn"
+    fill()
+    checkStatus()
+  }
+
+  function fill(){
+    for (let index = 0; index < board.length; index++) 
+       document.getElementById('box-0-'+index).innerText=board[index]
+  }
+
+  function checkStatus(){
+    check = board[4]
+    //check middle
+    if(check != null)
+      for(var i = 0; i < 4; i ++)
+        if(check == board[i] && check == board[8-i]){
+          alert('Player ' + check + " wins")
+          return
+        }
+    
+    //check top-left
+    check = board[0]
+    if(check != null && (check == board[1] && check == board[2] || check == board[3] && check == board[6])){
+      alert('Player ' + check + " wins")
+      return
+    }
+    //check bottom right
+    check = board[8]
+    if(check != null && (check == board[6] && check == board[7] || check == board[2] && check == board[5])){
+      alert('Player ' + check + " wins")
+      return
+    }
+    if(checkfull()){
+      board = [ null, null, null, null, null, null, null, null, null]
+      fill()
+    }
+  }
+
+  function checkfull(){
+    for (e of board)
+      if( e == null) return false
+    return true
+  }
+</script>
+
+<style>
+.game-board{
+  width: 600px;
+  height: 600px;
+  margin: 0 auto;
+  background-color: #34495e;
+  color: #fff;
+  border: 6px solid #2c3e50;
+  border-radius: 10px;
+  
+  display: grid;
+  grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+}
+
+.box{
+  border: 6px solid #2c3e50;
+  border-radius: 2px;
+  font-family: Helvetica;
+  font-weight: bold;
+  font-size: 4em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+</style>
+
+<html>
