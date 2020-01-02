@@ -1,15 +1,15 @@
-boards = [
-  [null, null, null, null, null, null, null, null, null],
-  [null, null, null, null, null, null, null, null, null],
-  [null, null, null, null, null, null, null, null, null],
-  [null, null, null, null, null, null, null, null, null],
-  [null, null, null, null, null, null, null, null, null],
-  [null, null, null, null, null, null, null, null, null],
-  [null, null, null, null, null, null, null, null, null],
-  [null, null, null, null, null, null, null, null, null],
-  [null, null, null, null, null, null, null, null, null] ]
+boards = [[null, null, null, null, null, null, null, null, null],
+[null, null, null, null, null, null, null, null, null],
+[null, null, null, null, null, null, null, null, null],
+[null, null, null, null, null, null, null, null, null],
+[null, null, null, null, null, null, null, null, null],
+[null, null, null, null, null, null, null, null, null],
+[null, null, null, null, null, null, null, null, null],
+[null, null, null, null, null, null, null, null, null],
+[null, null, null, null, null, null, null, null, null]]
 turn = 'X'
 board = [null, null, null, null, null, null, null, null, null]
+main = [null, null, null, null, null, null, null, null, null]
 num = 0
 playable = -1
 fill()
@@ -27,39 +27,49 @@ function showBox(e) {
   else turn = "O"
   document.getElementById('CurrentTurn').innerText = "Player "+ turn+"'s Turn"
   fill()
-  checkStatus()
-  console.log(boards)
+  checkStatus(board)
+  checkStatus(main)
+  //console.log(boards)
 }
 
 function fill(){
-  for (let index = 0; index < board.length; index++) 
-    document.getElementById('box-'+num+'-'+index).innerText=board[index]
+  for (let index = 0; index < board.length; index++)
+  document.getElementById('box-'+num+'-'+index).innerText=board[index]
 }
 
-function checkStatus(){
-  check = board[4]
+function checkStatus(tictac){
+  check = tictac[4]
   //check middle
   if(check != null)
-    for(var i = 0; i < 4; i ++)
-      if(check == board[i] && check == board[8-i]){
-        alert('Player ' + check + " wins")
-        return
-      }
-  
+  for(var i = 0; i < 4; i ++)
+  if(check == tictac[i] && check == tictac[8-i]){
+    document.getElementById('container'+num).className += '-full'
+    document.getElementById('board'+num+'Text').innerText = check
+    //console.log('container'+num, main)
+    main[num] = check
+    return
+  }
+
   //check top-left
-  check = board[0]
-  if(check != null && (check == board[1] && check == board[2] || check == board[3] && check == board[6])){
-    alert('Player ' + check + " wins")
+  check = tictac[0]
+  if(check != null && (check == tictac[1] && check == tictac[2] || check == tictac[3] && check == tictac[6])){
+    document.getElementById('container'+num).className += '-full'
+    document.getElementById('board'+num+'Text').innerText = check
+    //console.log('container'+num, main)
+    main[num] = check
     return
   }
   //check bottom right
-  check = board[8]
-  if(check != null && (check == board[6] && check == board[7] || check == board[2] && check == board[5])){
-    alert('Player ' + check + " wins")
+  check = tictac[8]
+  if(check != null && (check == tictac[6] && check == tictac[7] || check == tictac[2] && check == tictac[5])){
+    document.getElementById('container'+num).className += '-full'
+    document.getElementById('board'+num+'Text').innerText = check
+    //console.log('container'+num, main)
+    main[num] = check
     return
   }
   if(checkfull()){
-    board = [ null, null, null, null, null, null, null, null, null]
+    tictac = [ null, null, null, null, null, null, null, null, null]
     fill()
   }
 }
