@@ -1,97 +1,214 @@
-<html>
-<div class="box" id = "CurrentTurn">Player X's Turn</div>
-<div class="game-board" id="board1" onClick="showBox()">
-  <div class="box" id="box-0-0"></div>
-  <div class="box" id="box-0-1"></div>
-  <div class="box" id="box-0-2"></div>
-  <div class="box" id="box-0-3"></div>
-  <div class="box" id="box-0-4"></div>
-  <div class="box" id="box-0-5"></div>
-  <div class="box" id="box-0-6"></div>
-  <div class="box" id="box-0-7"></div>
-  <div class="box" id="box-0-8"></div>
-</div>
+<!doctype html>
+<title>3D Tic-Tac-Toe</title>
+<body>
+  <div class="box" id="CurrentTurn">Player X's Turn</div>
+  <div id="outer-grid">
+    <div class="board" id="board-0" onclick="showBox()">
+      <div id="inner-grid">
+        <div class="cell" id="cell-0-0"></div>
+        <div class="cell" id="cell-0-1"></div>
+        <div class="cell" id="cell-0-2"></div>
+        <div class="cell" id="cell-0-3"></div>
+        <div class="cell" id="cell-0-4"></div>
+        <div class="cell" id="cell-0-5"></div>
+        <div class="cell" id="cell-0-6"></div>
+        <div class="cell" id="cell-0-7"></div>
+        <div class="cell" id="cell-0-8"></div>
+      </div>
+    </div>
+    <div class="board" id="board-1">
+      <div id="inner-grid">
+        <div class="cell" id="cell-1-0"></div>
+        <div class="cell" id="cell-1-1"></div>
+        <div class="cell" id="cell-1-2"></div>
+        <div class="cell" id="cell-1-3"></div>
+        <div class="cell" id="cell-1-4"></div>
+        <div class="cell" id="cell-1-5"></div>
+        <div class="cell" id="cell-1-6"></div>
+        <div class="cell" id="cell-1-7"></div>
+        <div class="cell" id="cell-1-8"></div>
+      </div>
+    </div>
+    <div class="board" id="board-2">
+      <div id="inner-grid">
+        <div class="cell" id="cell-2-0"></div>
+        <div class="cell" id="cell-2-1"></div>
+        <div class="cell" id="cell-2-2"></div>
+        <div class="cell" id="cell-2-3"></div>
+        <div class="cell" id="cell-2-4"></div>
+        <div class="cell" id="cell-2-5"></div>
+        <div class="cell" id="cell-2-6"></div>
+        <div class="cell" id="cell-2-7"></div>
+        <div class="cell" id="cell-2-8"></div>
+      </div>
+    </div>
+    <div class="board" id="board-3">
+      <div id="inner-grid">
+        <div class="cell" id="cell-3-0"></div>
+        <div class="cell" id="cell-3-1"></div>
+        <div class="cell" id="cell-3-2"></div>
+        <div class="cell" id="cell-3-3"></div>
+        <div class="cell" id="cell-3-4"></div>
+        <div class="cell" id="cell-3-5"></div>
+        <div class="cell" id="cell-3-6"></div>
+        <div class="cell" id="cell-3-7"></div>
+        <div class="cell" id="cell-3-8"></div>
+      </div>
+    </div>
+    <div class="board" id="board-4">
+      <div id="inner-grid">
+        <div class="cell" id="cell-4-0"></div>
+        <div class="cell" id="cell-4-1"></div>
+        <div class="cell" id="cell-4-2"></div>
+        <div class="cell" id="cell-4-3"></div>
+        <div class="cell" id="cell-4-4"></div>
+        <div class="cell" id="cell-4-5"></div>
+        <div class="cell" id="cell-4-6"></div>
+        <div class="cell" id="cell-4-7"></div>
+        <div class="cell" id="cell-4-8"></div>
+      </div>
+    </div>
+    <div class="board" id="board-5">
+      <div id="inner-grid">
+        <div class="cell" id="cell-5-0"></div>
+        <div class="cell" id="cell-5-1"></div>
+        <div class="cell" id="cell-5-2"></div>
+        <div class="cell" id="cell-5-3"></div>
+        <div class="cell" id="cell-5-4"></div>
+        <div class="cell" id="cell-5-5"></div>
+        <div class="cell" id="cell-5-6"></div>
+        <div class="cell" id="cell-5-7"></div>
+        <div class="cell" id="cell-5-8"></div>
+      </div>
+    </div>
+    <div class="board" id="board-6">
+      <div id="inner-grid">
+        <div class="cell" id="cell-6-0"></div>
+        <div class="cell" id="cell-6-1"></div>
+        <div class="cell" id="cell-6-2"></div>
+        <div class="cell" id="cell-6-3"></div>
+        <div class="cell" id="cell-6-4"></div>
+        <div class="cell" id="cell-6-5"></div>
+        <div class="cell" id="cell-6-6"></div>
+        <div class="cell" id="cell-6-7"></div>
+        <div class="cell" id="cell-6-8"></div>
+      </div>
+    </div>
+    <div class="board" id="board-7">
+      <div id="inner-grid">
+        <div class="cell" id="cell-7-0"></div>
+        <div class="cell" id="cell-7-1"></div>
+        <div class="cell" id="cell-7-2"></div>
+        <div class="cell" id="cell-7-3"></div>
+        <div class="cell" id="cell-7-4"></div>
+        <div class="cell" id="cell-7-5"></div>
+        <div class="cell" id="cell-7-6"></div>
+        <div class="cell" id="cell-7-7"></div>
+        <div class="cell" id="cell-7-8"></div>
+      </div>
+    </div>
+    <div class="board" id="board-8">
+      <div id="inner-grid">
+        <div class="cell" id="cell-8-0"></div>
+        <div class="cell" id="cell-8-1"></div>
+        <div class="cell" id="cell-8-2"></div>
+        <div class="cell" id="cell-8-3"></div>
+        <div class="cell" id="cell-8-4"></div>
+        <div class="cell" id="cell-8-5"></div>
+        <div class="cell" id="cell-8-6"></div>
+        <div class="cell" id="cell-8-7"></div>
+        <div class="cell" id="cell-8-8"></div>
+      </div>
+    </div>
+  </div>
+</body>
 <script>
   turn = 'X'
-  board = [ null, null, null, null, null, null, null, null, null]
+  board = [null, null, null, null, null, null, null, null, null]
   fill()
 
   function showBox(e) {
     e = e || window.event;
     e = e.target || e.srcElement;
-    if(e.innerText) return
+    if (e.innerText) return
     board[e.id.split('-')[2]] = turn
-    if(turn != 'X') turn = 'X'
+    if (turn != 'X') turn = 'X'
     else turn = "O"
-    document.getElementById('CurrentTurn').innerText = "Player "+ turn+"'s Turn"
+    document.getElementById('CurrentTurn').innerText = "Player " + turn + "'s Turn"
     fill()
     checkStatus()
   }
 
-  function fill(){
-    for (let index = 0; index < board.length; index++) 
-       document.getElementById('box-0-'+index).innerText=board[index]
+  function fill() {
+    for (let index = 0; index < board.length; index++)
+      document.getElementById('cell-0-' + index).innerText = board[index]
   }
 
-  function checkStatus(){
+  function checkStatus() {
     check = board[4]
     //check middle
-    if(check != null)
-      for(var i = 0; i < 4; i ++)
-        if(check == board[i] && check == board[8-i]){
+    if (check != null)
+      for (var i = 0; i < 4; i++)
+        if (check == board[i] && check == board[8 - i]) {
           alert('Player ' + check + " wins")
           return
         }
-    
+
     //check top-left
     check = board[0]
-    if(check != null && (check == board[1] && check == board[2] || check == board[3] && check == board[6])){
+    if (check != null && (check == board[1] && check == board[2] || check == board[3] && check == board[6])) {
       alert('Player ' + check + " wins")
       return
     }
     //check bottom right
     check = board[8]
-    if(check != null && (check == board[6] && check == board[7] || check == board[2] && check == board[5])){
+    if (check != null && (check == board[6] && check == board[7] || check == board[2] && check == board[5])) {
       alert('Player ' + check + " wins")
       return
     }
-    if(checkfull()){
-      board = [ null, null, null, null, null, null, null, null, null]
+    if (checkfull()) {
+      board = [null, null, null, null, null, null, null, null, null]
       fill()
     }
   }
 
-  function checkfull(){
+  function checkfull() {
     for (e of board)
-      if( e == null) return false
+      if (e == null) return false
     return true
   }
 </script>
-
 <style>
-.game-board{
-  width: 600px;
-  height: 600px;
-  margin: 0 auto;
-  background-color: #34495e;
-  color: #fff;
-  border: 6px solid #2c3e50;
-  border-radius: 10px;
-  
-  display: grid;
-  grid-template: repeat(3, 1fr) / repeat(3, 1fr);
-}
+  #outer-grid {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    text-align: center;
+    grid-auto-flow: column;
+  }
 
-.box{
-  border: 6px solid #2c3e50;
-  border-radius: 2px;
-  font-family: Helvetica;
-  font-weight: bold;
-  font-size: 4em;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+  #outer-grid>div {
+    background-color: orangered;
+    color: white;
+    font-size: 4vw;
+    padding: 2px;
+  }
+
+  #inner-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 5px;
+  }
+
+  #inner-grid>div {
+    /*background: salmon;*/
+    padding: 3px;
+    min-height: 50px;
+    border: 1px solid black;
+  }
+
+  .board {
+    margin: 2px;
+    padding: 10px;
+  }
 </style>
-
-<html>
