@@ -12,6 +12,7 @@ board = [null, null, null, null, null, null, null, null, null]
 main = [null, null, null, null, null, null, null, null, null]
 num = 0
 playable = -1
+anywhere = false
 fill()
 
 function showBox(e) {
@@ -19,16 +20,28 @@ function showBox(e) {
   e = e.target || e.srcElement;
   if(e.innerText) return
   num = e.id.split('-')[1]
-  if (playable != -1 && playable != num) return
+  try {
+    if (main[playable] != null) anywhere = true
+  } catch (error) {}
+  if (playable != -1 && playable != num && !anywhere) return
+  if(anywhere){
+    //alert('go anywhere')
+    anywhere = false
+  }
   playable = e.id.split('-')[2]
+  try{
+    document.querySelector('.active').classList.remove('active')
+  }
+  catch(e){}
+  document.getElementById('board' + playable).classList.add('active')
   board = boards[num]
   board[e.id.split('-')[2]] = turn
-  if(turn != 'X') turn = 'X'
-  else turn = "O"
   document.getElementById('CurrentTurn').innerText = "Player "+ turn+"'s Turn"
   fill()
   checkStatus(board)
-  checkStatus(main)
+  if(checkStatus(main)) alert(turn+" has won")
+  if (turn != 'X') turn = 'X'
+  else turn = "O"
   //console.log(boards)
 }
 
@@ -47,7 +60,7 @@ function checkStatus(tictac){
     document.getElementById('board'+num+'Text').innerText = check
     //console.log('container'+num, main)
     main[num] = check
-    return
+    return true
   }
 
   //check top-left
@@ -57,7 +70,7 @@ function checkStatus(tictac){
     document.getElementById('board'+num+'Text').innerText = check
     //console.log('container'+num, main)
     main[num] = check
-    return
+    return true
   }
   //check bottom right
   check = tictac[8]
@@ -66,12 +79,13 @@ function checkStatus(tictac){
     document.getElementById('board'+num+'Text').innerText = check
     //console.log('container'+num, main)
     main[num] = check
-    return
+    return true
   }
   if(checkfull()){
     tictac = [ null, null, null, null, null, null, null, null, null]
     fill()
   }
+  return false
 }
 
 function checkfull(){

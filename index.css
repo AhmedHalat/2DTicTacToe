@@ -16,6 +16,10 @@ display: flex;
 margin: 0 auto;
 }
 
+.active{
+  background-color: #6184a8;
+}
+
 .box{
   border: 6px solid #2c3e50;
   /* border-radius: 2px; */
