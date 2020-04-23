@@ -4,7 +4,7 @@
 - This is a tictactoe game that works slightly different than most. This game idea was introduced to us by our friend and we decided to create a website where we could easily play it. 
 - In this game, there exists a master tictactoe board with smaller boards within each position of the master board. 
 - If your confused, just follow the colored square to see where you can play next. 
-- You can play it at [MohamedHalat.com](mohamedhalat.com)
+- You can play it at [MohamedHalat.com](https://mohamedhalat.com)
 
 ## How to play
 - You need 2 players, X and O
