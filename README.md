@@ -1,4 +1,4 @@
-# 3DTicTacToe - Hiatus
+# 2DTicTacToe - Hiatus
 
 ## Info
 - This is a tictactoe game that works slightly different than most. This game idea was introduced to us by our friend and we decided to create a website where we could easily play it. 
