@@ -153,6 +153,7 @@ body {
 .card-text {
   padding: 3%;
   padding-top: 0%;
+  display: flex;
 }
 
 .card-tags {
